@@ -16,6 +16,8 @@ class job(models.Model):
     sakary = models.IntegerField(default=0)
     experience = models.IntegerField(default=1)
     category = models.ForeignKey( 'Category' ,on_delete=models.CASCADE,null=True)
+    image = models.ImageField(upload_to='jobs/')
+
 
 
     def __str__(self):
