@@ -6,31 +6,55 @@
 
 
 <div class="bradcam_text " >
-    <h3 >مقالات طبيه</h3>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 <div dir="rtl">
 
 <!--/ bradcam_area  -->
+
+    
+<!-- Search -->
+<div class="catagory_area ">
+    <div class="container " style="margin-top: 10rem">
+        <div class=" single_text">
+            <h1>اكثر من {{jobs.count}}+وضائف  متاحة</h1>
+            <br>
+        </div>
+        
+        <!-- endsearch -->
+    </div>
+    <!-- bradcam_area  -->  
+
+        
+    
+        
 <!--================Blog Area =================-->
 <section class="blog_area section-padding">
 <div class="container">
     <div class="row">
+
+
+        {% for job in jobs %}
+ 
         <div class="col-lg-8 mb-5 mb-lg-0">
             <div class="blog_left_sidebar">
                 <article class="blog_item">
-                    <div class="blog_item_img">
-                        <img class="card-img rounded-0" src="img/blog/single_blog_1.png" alt="">
+                    <div class="blog_details">
+                        <img class="img-circle" src="{{job.image.url}}" alt="" style="width:50px;height:60px;">
                         <a href="#" class="blog_item_date">
-                            <h3>2:10</h3>
-                            <p>Monday</p>
-                        </a>
-                    </div>
+                            <h5>date : {{job.published_at|date:"d M o"}}</h5>
+                            
+                    
                       
-                    <div class="blog_details"> 
-                        <a class="d-inline-block" href="">
-                            <h2>عمليه زراعه الاسنان</h2>
+                     
+                        <a class="d-inline-block" href="{% url 'jobs:job_datil' job.slug %}">
+                            <h2>{{job}}</h2>
                         </a>
-                        <p>تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك</p>
+                        <p> {{job.descraption}} </p>
                         <ul class="blog-info-link">
                             <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                             <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
@@ -38,33 +62,29 @@
                     </div>
                 </article>
 
-
                 
-                <nav class="blog-pagination justify-content-center d-flex">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a href="" class="page-link" aria-label="Previous">
-                                <i class="ti-angle-right"></i>
-                            </a>
-                        </li>
-
-                            <li class="page-item">
-                                <a href="" class="page-link">2</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="" class="page-link">1</a>
-                            </li>
-                        
-                        <li class="page-item">
-                            <a href="" class="page-link" aria-label="Next">
-                                <i class="ti-angle-right"></i>
-                            </a>
-                        </li>
-
-                    </ul>
-                </nav>
             </div>
         </div>
+        
+        {% endfor %}
+
+
+
+
+
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+        
+
+
+
+
+
+
+
+
+        
+
         <div class="col-lg-4">
             <div class="blog_right_sidebar">
                 <aside class="single_sidebar_widget search_widget">
@@ -107,4 +127,46 @@
 <!--================Blog Area =================-->
 </div>
      
+
+
+
+
+
+
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@ -->
+{% if jobs.has_other_pages %}
+
+    <div class="col-lg-8 mb-5 mb-lg-0"> 
+        <nav class="blog-pagination justify-content-center d-flex">
+            <ul class="pagination">
+                <li class="page-item">
+                    {% if jobs.has_previous %}
+                    <a href="?page={{jobs.previous_page_number}}" class="page-link" aria-label="Previous">
+                        <i class="ti-angle-right"></i>
+                    </a>
+                    {% endif %}
+                </li>
+                
+                        {% for i in jobs.paginator.page_range %}        
+                            <li class="page-item active">
+                                <a href="?page={{i}}" class="page-link">{{i}}</a>
+                            </li>
+                        {%endfor%}     
+                <li class="page-item">
+                    {% if jobs.has_next %}
+                    <a href="?page={{jobs.next_page_number}}" class="page-link" aria-label="Next">
+                        <i class="ti-angle-right"></i>
+                    </a>
+                    {% endif %}
+
+                </li>
+                
+            </ul>
+        </nav>
+        
+    </div>
+{% endif %}
+
 {% endblock body%}

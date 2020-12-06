@@ -1,195 +1,149 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load static %}
 {% block body%}
 
 
 
-
+<div class="bradcam_text " >
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 <div dir="rtl">
     <!-- bradcam_area  -->
 
 
 
-<div class="bradcam_text " >
-    <h3 >تفاصيل المقاله</h3>
-</div>
-
   <!--/ bradcam_area  -->
 
-   <!--================Blog Area =================-->
-<section class="blog_area single-post-area section-padding">
-<div class="container">
-    <div class="row">
-    <div class="col-lg-8 posts-list">
-        <div class="single-post">
-            <div class="feature-img">
-                    
-                <img class="img-fluid image-detail" src="{% static 'img/blog/single_blog_1.png'%}" alt="">
-                <div class="jobs_right">
-                    <div class="apply_now">
-                        <!-- <a class="boxed-btn3" href="">تعديل المقالة</a>
-                        <a  class="boxed-btn3 delete_blog"  href="" >حذف المقالة</a> -->
+
+
+  
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="job_details_header">
+                    <div class="single_jobs white-bg d-flex justify-content-between">
+                        <div class="jobs_left d-flex align-items-center">
+                            <div >
+                                
+                                <img src="{{job.image.url}}" alt="" width="100" height="100">
+                                    
+                            </div>
+                            <div class="jobs_conetent">
+                                <a href="#" ><h4>{{job}}</h4></a>
+                                <div class="links_locat d-flex align-items-center">
+                                    <div class="location">
+                                        <p> <i class="fa fa-map-marker"></i> العنوان </p>
+                                    </div>
+                                    <div class="location">
+                                        <p> <i class="fa fa-clock-o"></i>  {{job.job_type}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jobs_right">
+                            <div class="apply_now">
+                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="blog_details">
                 
-                <h2>عملية زراعة الأسنان</h2>
-                <a id="likebutton" class=" btn btn-primary btn-lg" id="like"  data-catid="" href="" data-catid="">Like 2</a> </p> <p id="message"></p>
-                <ul class="blog-info-link mt-3 mb-4">
-                <li><a href="#"><i class="fa fa-user"></i><p>تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك</p> </a></li>
-                <li><a href="#"><i class="fa fa-comments"></i> 03 كومنتات</a></li>
-                </ul>
-                <p class="excert">جميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك</p></p>
-                <p>الوثف</p>
-                <div >
-                    <p>تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك تجميل و زراعه الاسنان  بكالريوس علوم جامعة بورك</p>
-                </div>
-            </div>
-        </div>
-        <div class="navigation-top">
-            <div class="d-sm-flex justify-content-between text-center">
-                <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
-                people like this</p>
-                <div class="col-sm-4 text-center my-2 my-sm-0">
-                <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
-                </div>
-                <ul class="social-icons">
-                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-
-        </div>
-        <div class="blog-author">
-            <div class="media align-items-center">
-                <img src="" alt="">
-                <div class="media-body">
-                <a href="#">
-                    <h4>تم النشر بواسطه <span style="color: blue;">اسم المؤلف</span> في تاريخ <span style="color: blue;">2/2/2020</span></h4>
-                </a>
-                <p>{{object.author.profile.subtitle}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="comments-area">
-            <h4>05 Comments</h4>
-            <div class="comment-list">
-                <div class="single-comment justify-content-between d-flex">
-                    <div class="user justify-content-between d-flex">
-                        <div class="thumb">
-                            <img src="" alt="">
-                        </div>
-                        <div class="desc">
-                            <p class="comment">هذا المقال مفيد جدا
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <h5>
-                                        <a href="#">محمود رؤف</a>
-                                    </h5>
-                                    <p class="date">2/2/2020 </p>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                </div>
-                            </div>
+                <div class="descript_wrap white-bg">
+                    <div class="single_wrapp">
+                    </div>
+                    <div class="white-card white-card-inner">
+                        <div class="single_wrap" style="margin-top: 10px;">
+                            <h4>التفاصيل </h4>
+                            <ul>
+                                <p>{{job.descraption}} </p>
+                            </ul>
                         </div>
                     </div>
+                   
                 </div>
-            </div>
 
-        </div>
+                <form  method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form1 %}
+                    {% buttons %}
+                        <button type="submit" class="boxed-btn3 w-100">Submit</button>
+                    {% endbuttons %}
 
-        <div class="comment-form">
-            <h4>Leave a Reply</h4>
-            <form method="POST" class="form-contact comment_form" enctype="multipart/form-data">
+                </form>
 
-                <div class="row">
-                    <div class="col-12">
-                    </div>
-                    <div class="col-12">
-                    <div class="form-group">
-                        <textarea class="form-control w-100" name="comments" id="comments" cols="30" rows="9"
-                            placeholder="Write Comment"></textarea>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                    </div>
-                </div>
-        
-                </div>
-                <div class="form-group">
-                <button type="submit" class="button button-contactForm btn_1 boxed-btn" >Send Message</button>
+
+
+
+
+
+
                 
+    
             </div>
-            </form>
-        </div>        </div>
-    <div class="col-lg-4">
-        <div class="blog_right_sidebar">
-                <aside class="single_sidebar_widget search_widget">
-                    <form method="GET">
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <input name='q' type="text" class="form-control" placeholder='بحث فى المقالات'
-                                    onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Search Keyword'">
-                                <div class="input-group-append">
-                                    <button class="btn" type="button"><i class="ti-search"></i></button>
-                                </div>
-                            </div>
+            <div class="col-lg-4">
+                <div class="job_sumary">
+                    <div class="summery_header">
+                        <h3>معلومات عن الوظيفة </h3>
+                    </div>
+                    <div class="job_content">
+                        <ul>
+                            <li>  نشر فى :{{job.published_at|date:"d M o"}} </li>
+                            <li> عدد الوضائف : {{job.vacancy}}</li>
+                            <li> الراتب : {{job.salary}}k/y</li>
+                            <li> بلد المنشأ : </li>
+                            <li>عدد ساعات العمل :{{job.job_type}} </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="share_wrap d-flex">
+                    <span>شارك الصفحه :</span>
+                    <ul>
+                        <li><a href="#"> <i class="fa fa-facebook"></i></a> </li>
+                        <li><a href="#"> <i class="fa fa-google-plus"></i></a> </li>
+                        <li><a href="#"> <i class="fa fa-twitter"></i></a> </li>
+                        <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
+                    </ul>
+                </div>
+                <div class="job_location_wrap">
+                    <div class="job_lok_inner">
+                        <div id="map" style="height: 200px;"></div>
+                        <script>
+                            function initMap() {
+                            var uluru = {lat: -25.363, lng: 131.044};
+                            var grayStyles = [
+                                {
+                                featureType: "all",
+                                stylers: [
+                                    { saturation: -90 },
+                                    { lightness: 50 }
+                                ]
+                                },
+                                {elementType: 'labels.text.fill', stylers: [{color: '#ccdee9'}]}
+                            ];
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: -31.197, lng: 150.744},
+                                zoom: 9,
+                                styles: grayStyles,
+                                scrollwheel:  false
+                            });
+                            }
+                            
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
+                        
                         </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                            type="submit">إبحث</button>
-                    </form>
-                </aside>
-                <aside class="single_sidebar_widget popular_post_widget">
-                    <h3 class="widget_title">أقدم المقالات</h3>
-
-
-                        <div class="media post_item">
-                                <img src="{% static 'img/blog/single_blog_1.png'%}" alt="" style="width: 30spx; height: 30px;">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>تجميل وزراعه الاسنان</h3>
-                                </a>
-                                <p>تم النتشر في : <span style="color: #00D363;">3/6/2020</p>
-                            </div>
-                        </div>
-                    
-
-                </aside>
+                </div>
+            </div>
         </div>
     </div>
     </div>
-</div>
-</section>
-</div>
-   <!--================ Blog Area end =================-->
+    </div>
 
-<script type="text/javascript"> 
-    $('#likebutton').click(function(){ 
 
-    $.ajax( 
-    { 
-        type:"POST", 
-        url: "", 
-        data:{ 
-            post_slug : slug, 
-    }, 
-    dataType: "json",
-    success: function( data ) 
-    { 
-        $( '#like'+ slug ).removeClass('btn btn-primary btn-lg'); 
-        $( '#like'+ slug ).addClass('btn btn-success btn-lg'); } }) });
-</script>
 {% endblock body%}
