@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block body%}
+
+
+
+<div class="bradcam_text " >
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+<div dir="rtl">
+
+<div class="bradcam_area bradcam_bg_1 ">
+        <div class="container "  style="margin-right: 30rem">
+       
+            
+        
+    </div>
+</div>
+
+
+    <!-- bradcam_area  --> 
+
+
+
+
+  
+  <div dir="rtl">
+    <div class="container">
+        <div class="signup">
+    
+        <div class="col-lg-9 mx-auto" >
+            <form  method="POST" enctype="multipart/form-data">
+           <h4>تعديل البروفايل</h4>
+
+                {% csrf_token %}
+                {% bootstrap_form userform %}
+                {% bootstrap_form profileform %}
+                {% buttons %}
+                    <button type="submit" class="boxed-btn3 w-100">حفظ </button>
+                {% endbuttons %}
+
+            </form>
+
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock body%}

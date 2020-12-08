@@ -49,14 +49,13 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-7">
+                    <div class="col-xl-5 col-lg-7">
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="">احجز وضيفتك</a></li>|
-                                    <li><a href="">المقالات</a></li>|
-                                    <li><a href="">الصفحه الشخصيه </a></li>|
-                                    <li><a href="contact.html">اتصل بنا</a></li>
+                                    <li><a href="">الصفحة الرئيسية</a></li>|
+                                    <li><a href="{% url 'jobs:job_list' %}">الوظائف المتاحة</a></li>|
+                                    <li><a href="{% url 'contact:contact'%}">اتصل بنا</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -64,17 +63,25 @@
                     <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                         <div class="Appointment">
                             
-                            <div class="phone_num d-none d-xl-block"></div>
-                            <div class="d-none d-lg-block">
-                                <a class="boxed-btn3" href="">قدم على وضيفتك</a>
+                            <div class="phone_num d-none d-xl-block">
+                                <a class="boxed-btn3" href="{% url 'jobs:add_job' %}">اضف وظيفة </a>
                             </div>
                             
-                            <div class="phone_num d-none d-xl-block">
-                                <a class="boxed-btn3" href="">سجل الدخول</a>
-                            </div>
-                            <div class="d-none d-lg-block">
-                                <a class="boxed-btn3" style="background-color: crimson;" href="">التسجيل</a>
-                            </div>
+                            {% if request.user.is_authenticated %}
+                                <div class="phone_num d-none d-xl-block">
+                                    <a class="boxed-btn3" href="{% url 'accounts:profile'%}"> الصفحة الشخصية</a>
+                                </div>
+
+                            {% else %}
+                                <div class="phone_num d-none d-xl-block">
+                                    <a class="boxed-btn3" href="{% url 'login'%}">سجل الدخول</a>
+                                </div>
+                                <div class="d-none d-lg-block">
+                                    <a class="boxed-btn3" style="background-color: crimson;" href="">التسجيل</a>
+                                </div>
+                            {% endif %}
+                                
+                           
                             
                         </div>
                     </div>

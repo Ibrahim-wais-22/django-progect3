@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load static %}
 {% block body%}
 
@@ -29,20 +30,19 @@
     </div>
     <!-- bradcam_area  -->  
 
-        
-    
-        
+       
 <!--================Blog Area =================-->
 <section class="blog_area section-padding">
-<div class="container">
+<div class="container" >
     <div class="row">
 
 
+   
         {% for job in jobs %}
  
         <div class="col-lg-8 mb-5 mb-lg-0">
             <div class="blog_left_sidebar">
-                <article class="blog_item">
+                <article class="blog_item" style="background-color: rgba(142, 197, 248, 0.63);">
                     <div class="blog_details">
                         <img class="img-circle" src="{{job.image.url}}" alt="" style="width:50px;height:60px;">
                         <a href="#" class="blog_item_date">
@@ -89,22 +89,14 @@
             <div class="blog_right_sidebar">
                 <aside class="single_sidebar_widget search_widget">
                     <form method="GET">
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <input name='q' type="text" class="form-control" placeholder='بحث فى المقالات'
-                                    onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Search Keyword'">
-                                <div class="input-group-append">
-                                    <button class="btn" type="button"><i class="ti-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                            type="submit">إبحث</button>
+                        {% bootstrap_form myfilter.form %}
+                   
+                            <input type="submit" value="إبحث" class="boxed-btn3 w-100">
                     </form>
                 </aside>
+
                 <aside class="single_sidebar_widget popular_post_widget">
-                    <h3 class="widget_title">أقدم المقالات</h3>
+                    <h3 class="widget_title">احدث الوضائف</h3>
 
 
                         <div class="media post_item">
